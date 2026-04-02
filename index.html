@@ -730,30 +730,47 @@
     </footer>
 
     <script>
-      // Theme toggle functionality
+      // Theme toggle functionality with adaptive mode support
       const themeToggle = document.querySelector('.theme-toggle');
       const html = document.documentElement;
 
-      // Check for saved theme preference or system preference
-      const savedTheme = localStorage.getItem('theme');
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // Get theme mode: 'auto', 'light', or 'dark'
+      const getThemeMode = () => localStorage.getItem('themeMode') || 'auto';
+
+      // Apply theme based on current mode
+      const applyTheme = () => {
+        const mode = getThemeMode();
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (mode === 'auto') {
+          html.setAttribute('data-theme', systemPrefersDark ? 'dark' : 'light');
+        } else {
+          html.setAttribute('data-theme', mode);
+        }
+      };
 
       // Set initial theme
-      if (savedTheme) {
-        html.setAttribute('data-theme', savedTheme);
-      } else if (systemPrefersDark) {
-        html.setAttribute('data-theme', 'dark');
-      } else {
-        html.setAttribute('data-theme', 'light');
-      }
+      applyTheme();
 
-      // Toggle theme on button click
+      // Toggle theme mode: auto -> light -> dark -> auto
       themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const currentMode = getThemeMode();
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        let newMode;
+        if (currentMode === 'auto') {
+          // If currently auto, switch to opposite of system theme
+          newMode = systemPrefersDark ? 'light' : 'dark';
+        } else if (currentMode === 'dark') {
+          // If dark, switch to auto
+          newMode = 'auto';
+        } else {
+          // If light, switch to dark
+          newMode = 'dark';
+        }
+
+        localStorage.setItem('themeMode', newMode);
+        applyTheme();
 
         // Trigger theme change animation
         document.body.style.transition = 'background 0.3s ease, color 0.3s ease';
@@ -762,11 +779,9 @@
         }, 300);
       });
 
-      // Update theme when system preference changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-          html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-        }
+      // Update theme when system preference changes (only in auto mode)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        applyTheme();
       });
 
       // Smooth scroll for navigation links
