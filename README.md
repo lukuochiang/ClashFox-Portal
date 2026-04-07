@@ -72,8 +72,8 @@ ClashFox-Portal/
 ├── index.html          # 主页面
 ├── assets/             # 静态资源
 │   ├── logo.png
-│   ├── logo_light.png
-│   ├── logo_night.png
+│   ├── logo-light.png
+│   ├── logo-night.png
 │   └── clashfox_team.png
 └── README.md           # 项目说明
 ```
