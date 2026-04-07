@@ -70,6 +70,8 @@ php -S localhost:8000
 ```
 ClashFox-Portal/
 ├── index.html          # 主页面
+├── css/             # 样式
+│   ├── styles.css
 ├── assets/             # 静态资源
 │   ├── logo.png
 │   ├── logo-light.png
