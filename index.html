@@ -444,24 +444,34 @@
         </p>
         <div class="faq-list">
           <details class="faq-item">
-            <summary data-i18n="faq1_q">Why does ClashFox need System Extensions approval?</summary>
-            <p data-i18n="faq1_a">ClashFox uses macOS System Extensions to manage system-level proxy settings. Since macOS Catalina (10.15), Apple requires user approval for third-party system extensions to ensure security. You can approve this in System Preferences > Security & Privacy.</p>
-          </details>
-          <details class="faq-item">
             <summary data-i18n="faq2_q">How do I resolve kernel conflict issues?</summary>
             <p data-i18n="faq2_a">If you're experiencing conflicts, make sure you don't have other Mihomo-based applications running simultaneously (like ClashX Pro or Surge). Each application needs its own Mihomo instance. Close other proxy apps before starting ClashFox.</p>
-          </details>
-          <details class="faq-item">
-            <summary data-i18n="faq3_q">Where can I find the Mihomo configuration file?</summary>
-            <p data-i18n="faq3_a">ClashFox looks for Mihomo configuration at ~/.config/mihomo/config.yaml by default. You can also specify a custom path in ClashFox preferences. Make sure your configuration file follows the Mihomo format.</p>
           </details>
           <details class="faq-item">
             <summary data-i18n="faq4_q">Does ClashFox support proxy subscription links?</summary>
             <p data-i18n="faq4_a">Yes! ClashFox supports importing proxy configurations via subscription URLs. Go to Configuration > Import from URL and paste your subscription link. ClashFox will automatically fetch and update your proxy list.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="faq5_q">How to enable LaunchDaemon for auto-start?</summary>
-            <p data-i18n="faq5_a">ClashFox can install a LaunchDaemon helper for automatic startup. Go to Settings > General > Launch at Login. This allows ClashFox to start automatically when you log in to macOS.</p>
+            <summary data-i18n="faq5_q">Where are configurations, logs, and kernel stored?</summary>
+            <div class="faq-answer">
+              <p data-i18n="faq5_desc">The runtime root directory is located at <code>~/Library/Application Support/ClashFox</code>.</p>
+              <ul>
+                <li><strong>data/</strong> — User configuration files and subscription import results</li>
+                <li><strong>logs/</strong> — Runtime logs and troubleshooting output (can be cleaned up after troubleshooting)</li>
+                <li><strong>core/</strong> — Mihomo kernel binary file</li>
+              </ul>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq6_q">What should I do when macOS shows "App is damaged" or "Cannot verify developer"?</summary>
+            <div class="faq-answer">
+              <p data-i18n="faq6_tip">This is typically the default Gatekeeper blocking behavior for unnotarized apps, not a ClashFox-specific issue.</p>
+              <ol>
+                <li data-i18n="faq6_step1">Move the app to <code>/Applications/ClashFox.app</code></li>
+                <li data-i18n="faq6_step2">Open <strong>System Settings → Privacy & Security</strong> and click "Still Open"</li>
+                <li data-i18n="faq6_step3">If still blocked, run: <code>sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app</code></li>
+              </ol>
+            </div>
           </details>
         </div>
       </section>
@@ -593,16 +603,17 @@
           step4_desc: "Enjoy seamless proxy management with ClashFox's intuitive interface!",
           faq_title: 'Frequently Asked Questions',
           faq_subtitle: 'Common questions about ClashFox and Mihomo',
-          faq1_q: 'Why does ClashFox need System Extensions approval?',
-          faq1_a: 'ClashFox uses macOS System Extensions to manage system-level proxy settings. Since macOS Catalina (10.15), Apple requires user approval for third-party system extensions to ensure security. You can approve this in System Preferences > Security & Privacy.',
           faq2_q: 'How do I resolve kernel conflict issues?',
-          faq2_a: "If you're experiencing conflicts, make sure you don't have other Mihomo-based applications running simultaneously (like ClashX Pro or Surge). Each application needs its own Mihomo instance. Close other proxy apps before starting ClashFox.",
-          faq3_q: 'Where can I find the Mihomo configuration file?',
-          faq3_a: "ClashFox looks for Mihomo configuration at ~/Library/Application Support/ClashFox/data by default. You can also specify a custom path in ClashFox preferences. Make sure your configuration file follows the Mihomo format.",
+          faq2_a: "If you encounter conflicts, close other proxy services and try again. Since the Mihomo kernel requires exclusive running, running multiple proxy tools simultaneously (like ClashX Pro, Surge, etc.) may cause port conflicts.",
           faq4_q: 'Does ClashFox support proxy subscription links?',
           faq4_a: "Yes! ClashFox supports importing proxy configurations via subscription URLs. Go to Configuration > Import from URL and paste your subscription link. ClashFox will automatically fetch and update your proxy list.",
-          faq5_q: 'How to enable LaunchDaemon for auto-start?',
-          faq5_a: "ClashFox can install a LaunchDaemon helper for automatic startup. Go to Settings > General > Launch at Login. This allows ClashFox to start automatically when you log in to macOS.",
+          faq5_q: 'Where are configurations, logs, and kernel stored?',
+          faq5_desc: "The runtime root directory is located at ~/Library/Application Support/ClashFox.",
+          faq6_q: 'What should I do when macOS shows "App is damaged" or "Cannot verify developer"?',
+          faq6_tip: 'This is typically the default Gatekeeper blocking behavior for unnotarized apps, not a ClashFox-specific issue.',
+          faq6_step1: 'Move the app to /Applications/ClashFox.app',
+          faq6_step2: 'Open System Settings → Privacy & Security and click "Still Open"',
+          faq6_step3: "If still blocked, run: sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app",
           nav_features: 'Features',
           nav_screenshots: 'Screenshots',
           nav_installation: 'Installation',
@@ -666,16 +677,17 @@
           step4_desc: '通过 ClashFox 直观的界面享受无缝代理管理！',
           faq_title: '常见问题',
           faq_subtitle: '关于 ClashFox 和 Mihomo 的常见问题',
-          faq1_q: '为什么 ClashFox 需要系统扩展批准？',
-          faq1_a: 'ClashFox 使用 macOS 系统扩展来管理系统级代理设置。自 macOS Catalina (10.15) 起，苹果要求用户批准第三方系统扩展以确保安全。您可以在系统偏好设置 > 安全性与隐私中进行批准。',
           faq2_q: '如何解决内核冲突问题？',
-          faq2_a: '如果遇到冲突，请确保没有同时运行其他基于 Mihomo 的应用程序（如 ClashX Pro 或 Surge）。每个应用程序都需要自己的 Mihomo 实例。在启动 ClashFox 前关闭其他代理应用。',
-          faq3_q: '在哪里可以找到 Mihomo 配置文件？',
-          faq3_a: 'ClashFox 默认在 ~/Library/Application Support/ClashFox/data 查找 Mihomo 配置。您也可以在 ClashFox 偏好设置中指定自定义路径。请确保您的配置文件遵循 Mihomo 格式。',
+          faq2_a: '如果遇到冲突，请关闭其他代理服务后重试。由于 Mihomo 内核需要独占运行，若同时运行多个代理工具（如 ClashX Pro、Surge 等）可能会导致端口冲突。',
           faq4_q: 'ClashFox 支持代理订阅链接吗？',
           faq4_a: '支持！ClashFox 支持通过订阅 URL 导入代理配置。前往配置 > 从 URL 导入并粘贴您的订阅链接，ClashFox 将自动获取并更新您的代理列表。',
-          faq5_q: '如何启用 LaunchDaemon 自动启动？',
-          faq5_a: 'ClashFox 可以安装 LaunchDaemon 助手以实现自动启动。前往设置 > 通用 > 登录时启动。这允许 ClashFox 在您登录 macOS 时自动启动。',
+          faq5_q: '配置、日志和内核都存在哪里？',
+          faq5_desc: '运行时根目录在 ~/Library/Application Support/ClashFox。',
+          faq6_q: 'macOS 提示"已损坏"或"无法验证开发者"怎么办？',
+          faq6_tip: '这通常是 Gatekeeper 对未公证应用的默认拦截，不是 ClashFox 独有问题。',
+          faq6_step1: '先把应用移动到 /Applications/ClashFox.app',
+          faq6_step2: '打开"系统设置 → 隐私与安全性"，点击"仍要打开"',
+          faq6_step3: '如果还是被拦截，再执行 sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app 去掉隔离标记',
           nav_features: '功能',
           nav_screenshots: '截图',
           nav_installation: '安装',

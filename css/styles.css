@@ -970,6 +970,49 @@ a.cta-button.secondary {
     animation: faqOpen 0.3s ease;
 }
 
+.faq-answer {
+    padding: 0 1.5rem 1.5rem;
+    animation: faqOpen 0.3s ease;
+}
+
+.faq-answer p {
+    padding: 0;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer li:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer code {
+    background: rgba(244, 179, 74, 0.15);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+}
+
+[data-theme="light"] .faq-answer code {
+    background: rgba(244, 179, 74, 0.2);
+}
+
 @keyframes faqOpen {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1313,6 +1356,16 @@ footer {
 
     .faq-item p {
         padding: 0 1rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .faq-answer {
+        padding: 0 1rem 1rem;
+    }
+
+    .faq-answer p,
+    .faq-answer ul,
+    .faq-answer ol {
         font-size: 0.9rem;
     }
 
