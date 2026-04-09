@@ -1032,6 +1032,9 @@
       let currentImageIndex = 0;
       let visibleImages = [];
 
+      // Initialize lightbox images
+      updateVisibleImages();
+
       function updateVisibleImages() {
         // 只收集轮播中的截图图片，不包括Overview Components
         const screenshotCards = Array.from(document.querySelectorAll('.carousel-slide .screenshot-card'))
@@ -1045,10 +1048,9 @@
       }
 
       function openLightbox(index) {
-        updateVisibleImages();
         currentImageIndex = index;
         showImage(currentImageIndex);
-        lightbox.classList.add('active');
+        lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
       }
 
@@ -1058,6 +1060,11 @@
       }
 
       function showImage(index) {
+        if (!visibleImages || visibleImages.length === 0) {
+          console.error('No images available to show');
+          return;
+        }
+        
         if (index < 0) index = visibleImages.length - 1;
         if (index >= visibleImages.length) index = 0;
         currentImageIndex = index;
@@ -1075,8 +1082,13 @@
       // Screenshot card click handler
       document.querySelectorAll('.screenshot-card').forEach((card, index) => {
         card.addEventListener('click', () => {
+          console.log('Screenshot card clicked, index:', index);
           updateVisibleImages();
-          openLightbox(index);
+          console.log('visibleImages after update:', visibleImages);
+          currentImageIndex = index;
+          showImage(currentImageIndex);
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
         });
         card.style.cursor = 'pointer';
       });
@@ -1084,6 +1096,7 @@
       // Overview card click handler
       document.querySelectorAll('.overview-compact-card').forEach((card) => {
         card.addEventListener('click', () => {
+          console.log('Overview card clicked');
           // 为Overview Components创建独立的图片数组
           const overviewCards = Array.from(document.querySelectorAll('.overview-compact-card'))
             .map(c => ({
@@ -1092,13 +1105,20 @@
               caption: c.querySelector('.overview-compact-title').textContent
             }));
           
+          console.log('overviewCards created:', overviewCards);
+          
           // 找到当前卡片的索引
           const allOverviewCards = Array.from(document.querySelectorAll('.overview-compact-card'));
           const currentIndex = allOverviewCards.indexOf(card);
+          console.log('currentIndex:', currentIndex);
           
           // 使用Overview Components的图片数组
           visibleImages = [...overviewCards];
-          openLightbox(currentIndex);
+          console.log('visibleImages set to overview cards');
+          currentImageIndex = currentIndex;
+          showImage(currentImageIndex);
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
         });
         // Cursor is already set in CSS for .overview-compact-card
       });

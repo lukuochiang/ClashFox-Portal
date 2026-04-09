@@ -1,6 +1,4 @@
 // i18n translations for ClashFox Portal
-console.log('i18n.js loaded successfully');
-
 const translations = {
     en: {
         hero_subtitle: 'Native Proxy GUI for Mihomo',
