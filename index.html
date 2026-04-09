@@ -42,7 +42,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
-            Features
+            <span data-i18n="nav_features">Features</span>
           </a></li>
           <li><a href="#screenshots" data-section="screenshots">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -50,7 +50,7 @@
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            Screenshots
+            <span data-i18n="nav_screenshots">Screenshots</span>
           </a></li>
           <li><a href="#installation" data-section="installation">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -58,16 +58,30 @@
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
               <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
-            Installation
+            <span data-i18n="nav_installation">Installation</span>
           </a></li>
           <li><a href="https://github.com/lukuochiang/ClashFox" target="_blank" rel="noopener noreferrer" data-section="github">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
-            GitHub
+            <span data-i18n="github">GitHub</span>
+          </a></li>
+          <li><a href="#faq" data-section="faq">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <span data-i18n="nav_faq">FAQ</span>
           </a></li>
         </ul>
-        <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="nav-controls">
+          <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-divider">/</span>
+            <button class="lang-btn" data-lang="zh">中文</button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
           <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"/>
             <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
@@ -76,95 +90,140 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
+        </div>
         <button class="mobile-menu-btn" aria-label="Menu">☰</button>
       </nav>
     </header>
 
+    <!-- 移动端主题切换浮动按钮 -->
+    <button class="theme-toggle mobile-theme-toggle" aria-label="Toggle theme">
+      <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+      <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+
     <main>
       <!-- Hero Section -->
       <section class="hero">
-        <h1>
-          <span class="highlight">ClashFox</span>
-          <span class="version-badge">v0.5.7</span><br />
-          Native Proxy GUI for Mihomo
-        </h1>
-        <p>
-          Make kernel management a lot of fun! A powerful Electron GUI for managing your Mihomo proxy configuration with style and ease.
-        </p>
-        <div class="cta-group">
-          <a href="https://github.com/lukuochiang/ClashFox/releases" class="cta-button primary" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Download
-          </a>
-          <a href="https://github.com/lukuochiang/ClashFox" class="cta-button secondary" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            GitHub
-          </a>
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <h1>
+              <span class="highlight">ClashFox</span>
+              <span class="version-badge">v0.5.7</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Native Proxy GUI for Mihomo</p>
+            <p class="hero-desc" data-i18n="hero_desc">
+              Make kernel management a lot of fun! A powerful Electron GUI for managing your Mihomo proxy configuration with style and ease.
+            </p>
+            <div class="cta-group">
+              <div class="download-dropdown">
+                <button class="cta-button primary dropdown-toggle">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  <span data-i18n="download">Download</span>
+                  <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+                <div class="dropdown-menu">
+                  <a href="https://github.com/lukuochiang/ClashFox/releases/download/v0.5.7/ClashFox-0.5.7-arm64.dmg" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                    <span class="arch-badge apple-silicon">Apple Silicon</span>
+                    <span class="item-version">v0.5.7</span>
+                  </a>
+                  <a href="https://github.com/lukuochiang/ClashFox/releases/download/v0.5.7/ClashFox-0.5.7-x64.dmg" class="dropdown-item" target="_blank" rel="noopener noreferrer">
+                    <span class="arch-badge intel">Intel</span>
+                    <span class="item-version">v0.5.7</span>
+                  </a>
+                </div>
+              </div>
+              <a href="https://github.com/lukuochiang/ClashFox" class="cta-button secondary" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span data-i18n="github">GitHub</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-preview">
+            <div class="preview-wrapper">
+              <img data-src="assets/screenshot/tray-menu.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="ClashFox Tray Menu Preview" />
+              <div class="preview-fade"></div>
+              <div class="preview-glow"></div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Features Section -->
       <section class="section" id="features">
-        <h2 class="section-title">Powerful Features</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-i18n="features_title">Powerful Features</h2>
+        <p class="section-subtitle" data-i18n="features_subtitle">
           Everything you need to manage your Mihomo proxy configuration efficiently
         </p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Fast & Lightweight</h3>
-            <p>Built with Electron for cross-platform support while maintaining excellent performance and responsiveness for smooth user experience.</p>
+        <div class="bento-grid">
+          <!-- Card 1 -->
+          <div class="bento-card">
+            <div class="bento-content">
+              <div class="bento-icon">⚡</div>
+              <h3 data-i18n="feat_fast_title">Fast & Lightweight</h3>
+              <p data-i18n="feat_fast_desc">Built with Electron for cross-platform support while maintaining excellent performance and responsiveness for smooth user experience.</p>
+            </div>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">🎨</div>
-            <h3>Modern UI Design</h3>
-            <p>Beautiful, intuitive interface with dark theme support, smooth animations, and thoughtful micro-interactions.</p>
+          <!-- Regular cards -->
+          <div class="bento-card">
+            <div class="bento-icon">🎨</div>
+            <h3 data-i18n="feat_ui_title">Modern UI Design</h3>
+            <p data-i18n="feat_ui_desc">Beautiful, intuitive interface with dark theme support, smooth animations, and thoughtful micro-interactions.</p>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">🔧</div>
-            <h3>Easy Configuration</h3>
-            <p>Simplified configuration management for Mihomo with a user-friendly interface and helpful configuration tools.</p>
+          <div class="bento-card">
+            <div class="bento-icon">🔧</div>
+            <h3 data-i18n="feat_config_title">Easy Configuration</h3>
+            <p data-i18n="feat_config_desc">Simplified configuration management for Mihomo with a user-friendly interface and helpful configuration tools.</p>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Real-time Monitoring</h3>
-            <p>Track your proxy traffic, connections, and performance metrics in real-time with detailed and informative dashboards.</p>
+          <!-- Card 4 -->
+          <div class="bento-card">
+            <div class="bento-content">
+              <div class="bento-icon">📊</div>
+              <h3 data-i18n="feat_monitor_title">Real-time Monitoring</h3>
+              <p data-i18n="feat_monitor_desc">Track your proxy traffic, connections, and performance metrics in real-time with detailed and informative dashboards.</p>
+            </div>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Secure & Private</h3>
-            <p>Your configuration stays local. No data is sent to external servers, ensuring complete privacy and data control.</p>
+          <div class="bento-card">
+            <div class="bento-icon">🔒</div>
+            <h3 data-i18n="feat_secure_title">Secure & Private</h3>
+            <p data-i18n="feat_secure_desc">Your configuration stays local. No data is sent to external servers, ensuring complete privacy and data control.</p>
           </div>
 
-          <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3>macOS Native</h3>
-            <p>Deep integration with macOS including LaunchDaemon helper for seamless system-level proxy management and automation.</p>
+          <div class="bento-card">
+            <div class="bento-icon">🚀</div>
+            <h3 data-i18n="feat_mac_title">macOS Native</h3>
+            <p data-i18n="feat_mac_desc">Deep integration with macOS including LaunchDaemon helper for seamless system-level proxy management and automation.</p>
           </div>
         </div>
       </section>
 
       <!-- Screenshots Section -->
       <section class="section" id="screenshots">
-        <h2 class="section-title">App Screenshots</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-i18n="screenshots_title">App Screenshots</h2>
+        <p class="section-subtitle" data-i18n="screenshots_subtitle">
           Take a peek at ClashFox's beautiful interface
         </p>
         
         <!-- Screenshot Tabs -->
         <div class="screenshot-tabs">
-          <button class="tab-btn active" data-tab="all">All</button>
-          <button class="tab-btn" data-tab="core">Core</button>
-          <button class="tab-btn" data-tab="tools">Tools</button>
-          <button class="tab-btn" data-tab="settings">Settings</button>
+          <button class="tab-btn active" data-tab="all" data-i18n="tab_all">All</button>
+          <button class="tab-btn" data-tab="core" data-i18n="tab_core">Core</button>
+          <button class="tab-btn" data-tab="tools" data-i18n="tab_tools">Tools</button>
+          <button class="tab-btn" data-tab="settings" data-i18n="tab_settings">Settings</button>
         </div>
         
         <div class="screenshots-grid">
@@ -182,7 +241,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Overview Dashboard</div>
+            <div class="screenshot-caption" data-i18n="cap_overview">Overview Dashboard</div>
           </div>
           <div class="screenshot-card" data-category="core">
             <div class="screenshot-wrapper">
@@ -197,7 +256,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Kernel Management</div>
+            <div class="screenshot-caption" data-i18n="cap_kernel">Kernel Management</div>
           </div>
           <div class="screenshot-card" data-category="core">
             <div class="screenshot-wrapper">
@@ -212,7 +271,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Configuration</div>
+            <div class="screenshot-caption" data-i18n="cap_config">Configuration</div>
           </div>
           <div class="screenshot-card" data-category="core">
             <div class="screenshot-wrapper">
@@ -227,7 +286,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Logs Viewer</div>
+            <div class="screenshot-caption" data-i18n="cap_logs">Logs Viewer</div>
           </div>
           
           <!-- Tools -->
@@ -244,7 +303,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Foxboard</div>
+            <div class="screenshot-caption" data-i18n="cap_foxboard">Foxboard</div>
           </div>
           <div class="screenshot-card" data-category="tools">
             <div class="screenshot-wrapper">
@@ -259,7 +318,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Trackers</div>
+            <div class="screenshot-caption" data-i18n="cap_trackers">Trackers</div>
           </div>
           
           <!-- Settings -->
@@ -276,7 +335,7 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Settings</div>
+            <div class="screenshot-caption" data-i18n="cap_settings">Settings</div>
           </div>
           <div class="screenshot-card" data-category="settings">
             <div class="screenshot-wrapper">
@@ -291,49 +350,107 @@
                 </span>
               </div>
             </div>
-            <div class="screenshot-caption">Help</div>
+            <div class="screenshot-caption" data-i18n="cap_help">Help</div>
           </div>
         </div>
       </section>
 
       <!-- Installation Section -->
       <section class="section" id="installation">
-        <h2 class="section-title">Quick Installation</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title" data-i18n="install_title">Quick Installation</h2>
+        <p class="section-subtitle" data-i18n="install_subtitle">
           Get ClashFox up and running in minutes
         </p>
         <div class="install-steps">
           <div class="step-card">
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3>Download</h3>
-              <p>Download the latest version from GitHub Releases for your platform (macOS)</p>
+              <h3 data-i18n="step1_title">Download</h3>
+              <p data-i18n="step1_desc">Download the latest version from GitHub Releases for your platform (macOS)</p>
             </div>
           </div>
 
           <div class="step-card">
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3>Install Mihomo</h3>
-              <p>Install Mihomo kernel separately. ClashFox does not bundle the kernel.</p>
+              <h3 data-i18n="step2_title">Install Mihomo</h3>
+              <p data-i18n="step2_desc">Mihomo kernel needs to be installed separately. ClashFox does not bundle the kernel.</p>
             </div>
           </div>
 
           <div class="step-card">
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+            </div>
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3>Configure</h3>
-              <p>Launch ClashFox and configure your proxy subscription or local config file.</p>
+              <h3 data-i18n="step3_title">Configure</h3>
+              <p data-i18n="step3_desc">Launch ClashFox and configure your proxy subscription or local config file.</p>
             </div>
           </div>
 
           <div class="step-card">
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
             <div class="step-number">4</div>
             <div class="step-content">
-              <h3>Start Using</h3>
-              <p>Enjoy seamless proxy management with ClashFox's intuitive interface!</p>
+              <h3 data-i18n="step4_title">Start Using</h3>
+              <p data-i18n="step4_desc">Enjoy seamless proxy management with ClashFox's intuitive interface!</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section" id="faq">
+        <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+        <p class="section-subtitle" data-i18n="faq_subtitle">
+          Common questions about ClashFox and Mihomo
+        </p>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq1_q">Why does ClashFox need System Extensions approval?</summary>
+            <p data-i18n="faq1_a">ClashFox uses macOS System Extensions to manage system-level proxy settings. Since macOS Catalina (10.15), Apple requires user approval for third-party system extensions to ensure security. You can approve this in System Preferences > Security & Privacy.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq2_q">How do I resolve kernel conflict issues?</summary>
+            <p data-i18n="faq2_a">If you're experiencing conflicts, make sure you don't have other Mihomo-based applications running simultaneously (like ClashX Pro or Surge). Each application needs its own Mihomo instance. Close other proxy apps before starting ClashFox.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq3_q">Where can I find the Mihomo configuration file?</summary>
+            <p data-i18n="faq3_a">ClashFox looks for Mihomo configuration at ~/.config/mihomo/config.yaml by default. You can also specify a custom path in ClashFox preferences. Make sure your configuration file follows the Mihomo format.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq4_q">Does ClashFox support proxy subscription links?</summary>
+            <p data-i18n="faq4_a">Yes! ClashFox supports importing proxy configurations via subscription URLs. Go to Configuration > Import from URL and paste your subscription link. ClashFox will automatically fetch and update your proxy list.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq5_q">How to enable LaunchDaemon for auto-start?</summary>
+            <p data-i18n="faq5_a">ClashFox can install a LaunchDaemon helper for automatic startup. Go to Settings > General > Launch at Login. This allows ClashFox to start automatically when you log in to macOS.</p>
+          </details>
         </div>
       </section>
     </main>
@@ -366,37 +483,280 @@
       <div class="footer-content">
         <div class="footer-section">
           <h4>ClashFox</h4>
-          <p>Native Proxy GUI for Mihomo</p>
-          <p>Make kernel management a lot of fun!</p>
+          <p data-i18n="footer_tagline">Native Proxy GUI for Mihomo</p>
+          <p data-i18n="footer_desc">Make kernel management a lot of fun!</p>
         </div>
 
         <div class="footer-section">
-          <h4>Resources</h4>
-          <a href="https://github.com/lukuochiang/ClashFox/releases" target="_blank" rel="noopener noreferrer">Releases</a>
-          <a href="https://github.com/lukuochiang/ClashFox/issues" target="_blank" rel="noopener noreferrer">Issues</a>
-          <a href="https://github.com/lukuochiang/ClashFox/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">Changelog</a>
+          <h4 data-i18n="footer_resources">Resources</h4>
+          <a href="https://github.com/lukuochiang/ClashFox/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer_releases">Releases</a>
+          <a href="https://github.com/lukuochiang/ClashFox/issues" target="_blank" rel="noopener noreferrer" data-i18n="footer_issues">Issues</a>
+          <a href="https://github.com/lukuochiang/ClashFox/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" data-i18n="footer_changelog">Changelog</a>
         </div>
 
         <div class="footer-section">
-          <h4>Community</h4>
-          <a href="https://github.com/lukuochiang/ClashFox" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-          <a href="https://github.com/lukuochiang/ClashFox/blob/main/README.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+          <h4 data-i18n="footer_community">Community</h4>
+          <a href="https://github.com/lukuochiang/ClashFox" target="_blank" rel="noopener noreferrer" data-i18n="footer_repo">GitHub Repository</a>
+          <a href="https://github.com/lukuochiang/ClashFox/blob/main/README.md" target="_blank" rel="noopener noreferrer" data-i18n="footer_docs">Documentation</a>
         </div>
 
         <div class="footer-section">
-          <h4>License</h4>
+          <h4 data-i18n="footer_license">License</h4>
           <p>GPL-3.0</p>
-          <a href="https://github.com/lukuochiang/ClashFox/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">View License</a>
+          <a href="https://github.com/lukuochiang/ClashFox/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="footer_view_license">View License</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 ClashFox. Licensed under GPL-3.0</p>
-        <p>Made with ❤️ by <a href="https://github.com/lukuochiang" target="_blank" rel="noopener noreferrer">Kuochiang Lu</a></p>
+        <p data-i18n="footer_copyright">&copy; 2026 ClashFox. Licensed under GPL-3.0</p>
+        <p><span data-i18n="footer_made_by">Made with ❤️ by Kuochiang Lu</span></p>
       </div>
     </footer>
 
       <script>
+      // Intersection Observer for animations and lazy loading (must be defined first!)
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            animationObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Lazy loading observer
+      const lazyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.dataset.src;
+            if (src) {
+              img.src = src;
+              img.removeAttribute('data-src');
+              img.classList.add('loaded');
+            }
+            lazyObserver.unobserve(img);
+          }
+        });
+      }, { rootMargin: '100px' });
+
+      // i18n translations
+      const translations = {
+        en: {
+          hero_subtitle: 'Native Proxy GUI for Mihomo',
+          hero_desc: 'Make kernel management a lot of fun! A powerful Electron GUI for managing your Mihomo proxy configuration with style and ease.',
+          download: 'Download',
+          github: 'GitHub',
+          features_title: 'Powerful Features',
+          features_subtitle: 'Everything you need to manage your Mihomo proxy configuration efficiently',
+          feat_fast_title: 'Fast & Lightweight',
+          feat_fast_desc: 'Built with Electron for cross-platform support while maintaining excellent performance and responsiveness for smooth user experience.',
+          feat_ui_title: 'Modern UI Design',
+          feat_ui_desc: 'Beautiful, intuitive interface with dark theme support, smooth animations, and thoughtful micro-interactions.',
+          feat_config_title: 'Easy Configuration',
+          feat_config_desc: 'Simplified configuration management for Mihomo with a user-friendly interface and helpful configuration tools.',
+          feat_monitor_title: 'Real-time Monitoring',
+          feat_monitor_desc: 'Track your proxy traffic, connections, and performance metrics in real-time with detailed and informative dashboards.',
+          feat_secure_title: 'Secure & Private',
+          feat_secure_desc: 'Your configuration stays local. No data is sent to external servers, ensuring complete privacy and data control.',
+          feat_mac_title: 'macOS Native',
+          feat_mac_desc: 'Deep integration with macOS including LaunchDaemon helper for seamless system-level proxy management and automation.',
+          screenshots_title: 'App Screenshots',
+          screenshots_subtitle: "Take a peek at ClashFox's beautiful interface",
+          install_title: 'Quick Installation',
+          install_subtitle: 'Get ClashFox up and running in minutes',
+          step1_title: 'Download',
+          step1_desc: 'Download the latest version from GitHub Releases for your platform (macOS)',
+          step2_title: 'Install Mihomo',
+          step2_desc: 'Mihomo kernel needs to be installed separately. ClashFox does not bundle the kernel.',
+          step3_title: 'Configure',
+          step3_desc: 'Launch ClashFox and configure your proxy subscription or local config file.',
+          step4_title: 'Start Using',
+          step4_desc: "Enjoy seamless proxy management with ClashFox's intuitive interface!",
+          faq_title: 'Frequently Asked Questions',
+          faq_subtitle: 'Common questions about ClashFox and Mihomo',
+          faq1_q: 'Why does ClashFox need System Extensions approval?',
+          faq1_a: 'ClashFox uses macOS System Extensions to manage system-level proxy settings. Since macOS Catalina (10.15), Apple requires user approval for third-party system extensions to ensure security. You can approve this in System Preferences > Security & Privacy.',
+          faq2_q: 'How do I resolve kernel conflict issues?',
+          faq2_a: "If you're experiencing conflicts, make sure you don't have other Mihomo-based applications running simultaneously (like ClashX Pro or Surge). Each application needs its own Mihomo instance. Close other proxy apps before starting ClashFox.",
+          faq3_q: 'Where can I find the Mihomo configuration file?',
+          faq3_a: "ClashFox looks for Mihomo configuration at ~/Library/Application Support/ClashFox/data by default. You can also specify a custom path in ClashFox preferences. Make sure your configuration file follows the Mihomo format.",
+          faq4_q: 'Does ClashFox support proxy subscription links?',
+          faq4_a: "Yes! ClashFox supports importing proxy configurations via subscription URLs. Go to Configuration > Import from URL and paste your subscription link. ClashFox will automatically fetch and update your proxy list.",
+          faq5_q: 'How to enable LaunchDaemon for auto-start?',
+          faq5_a: "ClashFox can install a LaunchDaemon helper for automatic startup. Go to Settings > General > Launch at Login. This allows ClashFox to start automatically when you log in to macOS.",
+          nav_features: 'Features',
+          nav_screenshots: 'Screenshots',
+          nav_installation: 'Installation',
+          nav_faq: 'FAQ',
+          tab_all: 'All',
+          tab_core: 'Core',
+          tab_tools: 'Tools',
+          tab_settings: 'Settings',
+          cap_overview: 'Overview Dashboard',
+          cap_kernel: 'Kernel Management',
+          cap_config: 'Configuration',
+          cap_logs: 'Logs Viewer',
+          cap_foxboard: 'Foxboard',
+          cap_trackers: 'Trackers',
+          cap_settings: 'Settings',
+          cap_help: 'Help',
+          footer_tagline: 'Native Proxy GUI for Mihomo',
+          footer_desc: 'Make kernel management a lot of fun!',
+          footer_resources: 'Resources',
+          footer_releases: 'Releases',
+          footer_issues: 'Issues',
+          footer_changelog: 'Changelog',
+          footer_community: 'Community',
+          footer_repo: 'GitHub Repository',
+          footer_docs: 'Documentation',
+          footer_license: 'License',
+          footer_view_license: 'View License',
+          footer_copyright: '© 2026 ClashFox. Licensed under GPL-3.0',
+          footer_made_by: 'Made with ❤️ by Kuochiang Lu'
+        },
+        zh: {
+          hero_subtitle: 'Mihomo 原生代理 GUI',
+          hero_desc: '让内核管理变得有趣！一款功能强大的 Electron GUI，助您轻松管理 Mihomo 代理配置。',
+          download: '下载',
+          github: 'GitHub',
+          features_title: '强大功能',
+          features_subtitle: '高效管理 Mihomo 代理配置所需的一切',
+          feat_fast_title: '快速且轻量',
+          feat_fast_desc: '基于 Electron 构建，跨平台支持，同时保持出色的性能和响应速度。',
+          feat_ui_title: '现代 UI 设计',
+          feat_ui_desc: '精美直观的界面，支持深色主题，流畅动画，精心设计的微交互。',
+          feat_config_title: '简易配置',
+          feat_config_desc: '简化 Mihomo 配置管理，用户友好的界面和实用的配置工具。',
+          feat_monitor_title: '实时监控',
+          feat_monitor_desc: '通过详细的信息面板实时跟踪代理流量、连接和性能指标。',
+          feat_secure_title: '安全私密',
+          feat_secure_desc: '您的配置保留在本地，不向外部服务器发送任何数据，确保完全的隐私和数据控制。',
+          feat_mac_title: '原生 macOS',
+          feat_mac_desc: '深度集成 macOS，包括 LaunchDaemon 助手，实现无缝的系统级代理管理和自动化。',
+          screenshots_title: '应用截图',
+          screenshots_subtitle: '一览 ClashFox 精美界面',
+          install_title: '快速安装',
+          install_subtitle: '几分钟内启动 ClashFox',
+          step1_title: '下载',
+          step1_desc: '从 GitHub Releases 下载适合您平台的最新版本 (macOS)',
+          step2_title: '安装 Mihomo',
+          step2_desc: 'Mihomo 内核需要单独安装，ClashFox 不捆绑内核。',
+          step3_title: '配置',
+          step3_desc: '启动 ClashFox 并配置您的代理订阅或本地配置文件。',
+          step4_title: '开始使用',
+          step4_desc: '通过 ClashFox 直观的界面享受无缝代理管理！',
+          faq_title: '常见问题',
+          faq_subtitle: '关于 ClashFox 和 Mihomo 的常见问题',
+          faq1_q: '为什么 ClashFox 需要系统扩展批准？',
+          faq1_a: 'ClashFox 使用 macOS 系统扩展来管理系统级代理设置。自 macOS Catalina (10.15) 起，苹果要求用户批准第三方系统扩展以确保安全。您可以在系统偏好设置 > 安全性与隐私中进行批准。',
+          faq2_q: '如何解决内核冲突问题？',
+          faq2_a: '如果遇到冲突，请确保没有同时运行其他基于 Mihomo 的应用程序（如 ClashX Pro 或 Surge）。每个应用程序都需要自己的 Mihomo 实例。在启动 ClashFox 前关闭其他代理应用。',
+          faq3_q: '在哪里可以找到 Mihomo 配置文件？',
+          faq3_a: 'ClashFox 默认在 ~/Library/Application Support/ClashFox/data 查找 Mihomo 配置。您也可以在 ClashFox 偏好设置中指定自定义路径。请确保您的配置文件遵循 Mihomo 格式。',
+          faq4_q: 'ClashFox 支持代理订阅链接吗？',
+          faq4_a: '支持！ClashFox 支持通过订阅 URL 导入代理配置。前往配置 > 从 URL 导入并粘贴您的订阅链接，ClashFox 将自动获取并更新您的代理列表。',
+          faq5_q: '如何启用 LaunchDaemon 自动启动？',
+          faq5_a: 'ClashFox 可以安装 LaunchDaemon 助手以实现自动启动。前往设置 > 通用 > 登录时启动。这允许 ClashFox 在您登录 macOS 时自动启动。',
+          nav_features: '功能',
+          nav_screenshots: '截图',
+          nav_installation: '安装',
+          nav_faq: '常见问题',
+          tab_all: '全部',
+          tab_core: '核心',
+          tab_tools: '工具',
+          tab_settings: '设置',
+          cap_overview: '概览面板',
+          cap_kernel: '内核管理',
+          cap_config: '配置管理',
+          cap_logs: '日志查看',
+          cap_foxboard: '工具面板',
+          cap_trackers: '追踪器',
+          cap_settings: '设置',
+          cap_help: '帮助',
+          footer_tagline: 'Mihomo 原生代理 GUI',
+          footer_desc: '让内核管理变得有趣！',
+          footer_resources: '资源',
+          footer_releases: '发布版本',
+          footer_issues: '问题反馈',
+          footer_changelog: '更新日志',
+          footer_community: '社区',
+          footer_repo: 'GitHub 仓库',
+          footer_docs: '使用文档',
+          footer_license: '开源许可',
+          footer_view_license: '查看许可',
+          footer_copyright: '© 2026 ClashFox. 基于 GPL-3.0 许可',
+          footer_made_by: '由 Kuochiang Lu ❤️ 开发'
+        }
+      };
+
+      // Language switching functionality
+      let currentLang = localStorage.getItem('lang') || 'en';
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        const t = translations[lang];
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (t[key] !== undefined) {
+            el.textContent = t[key];
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        document.documentElement.lang = lang;
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+      });
+
+      // Initialize language
+      setLanguage(currentLang);
+
+      // Download dropdown functionality
+      const downloadDropdown = document.querySelector('.download-dropdown');
+      const dropdownToggle = document.querySelector('.dropdown-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          downloadDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!downloadDropdown.contains(e.target)) {
+            downloadDropdown.classList.remove('open');
+          }
+        });
+      }
+
+      // Hero preview lazy load
+      const heroPreview = document.querySelector('.hero-preview img');
+      if (heroPreview) {
+        lazyObserver.observe(heroPreview);
+      }
+
+      // Bento cards animation
+      document.querySelectorAll('.bento-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        animationObserver.observe(card);
+      });
+
       // Fetch latest version from GitHub
       async function fetchLatestVersion() {
         const versionBadge = document.querySelector('.version-badge');
@@ -412,10 +772,10 @@
         }
       }
 
-      fetchLatestVersion();
+      // fetchLatestVersion();
 
       // Theme toggle functionality
-      const themeToggle = document.querySelector('.theme-toggle');
+      const themeToggles = document.querySelectorAll('.theme-toggle');
       const html = document.documentElement;
 
       const getThemeMode = () => localStorage.getItem('themeMode') || 'auto';
@@ -432,7 +792,7 @@
 
       applyTheme();
 
-      themeToggle.addEventListener('click', () => {
+      const toggleTheme = () => {
         const currentMode = getThemeMode();
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         let newMode;
@@ -449,7 +809,9 @@
         setTimeout(() => {
           document.body.style.transition = '';
         }, 300);
-      });
+      };
+
+      themeToggles.forEach(btn => btn.addEventListener('click', toggleTheme));
 
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
         applyTheme();
@@ -543,40 +905,8 @@
         });
       });
 
-      // Intersection Observer for animations and lazy loading
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
-
-      const animationObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            animationObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Lazy loading observer
-      const lazyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.dataset.src;
-            if (src) {
-              img.src = src;
-              img.removeAttribute('data-src');
-              img.classList.add('loaded');
-            }
-            lazyObserver.unobserve(img);
-          }
-        });
-      }, { rootMargin: '100px' });
-
-      // Initialize feature cards and step cards
-      document.querySelectorAll('.feature-card, .step-card').forEach(card => {
+      // Initialize Bento cards and step cards
+      document.querySelectorAll('.bento-card, .step-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

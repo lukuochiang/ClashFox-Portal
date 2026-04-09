@@ -76,7 +76,7 @@ ClashFox-Portal/
 │   ├── logo.png
 │   ├── logo-light.png
 │   ├── logo-night.png
-│   └── clashfox_team.png
+│   └── clashfox-team.png
 └── README.md           # 项目说明
 ```
 
@@ -133,7 +133,7 @@ ClashFox-Portal/
 - **Kuochiang Lu** - [GitHub](https://github.com/lukuochiang)
 
 ### ClashFox Team
-查看 [assets/clashfox_team.png](assets/clashfox_team.png) 了解团队成员
+查看 [assets/clashfox-team.png](assets/clashfox-team.png) 了解团队成员
 
 ## 🤝 贡献
 
