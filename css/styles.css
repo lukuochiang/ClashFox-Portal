@@ -1127,6 +1127,12 @@ footer {
     display: block;
 }
 
+/* Auto mode icons - hidden by default */
+.theme-toggle svg.auto,
+.mobile-theme-toggle svg.auto {
+    display: none;
+}
+
 /* 移动端主题切换浮动按钮 - 默认隐藏 */
 .mobile-theme-toggle {
     display: none;

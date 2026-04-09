@@ -89,6 +89,12 @@
           <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
+          <svg class="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a10 10 0 0 1 0 20"/>
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2m0 16v2M2 12h2m16 0h2"/>
+          </svg>
         </button>
         </div>
         <button class="mobile-menu-btn" aria-label="Menu">☰</button>
@@ -103,6 +109,12 @@
       </svg>
       <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2a10 10 0 0 1 0 20"/>
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2m0 16v2M2 12h2m16 0h2"/>
       </svg>
     </button>
 
@@ -788,6 +800,27 @@
         } else {
           html.setAttribute('data-theme', mode);
         }
+        updateThemeIcons(mode);
+      };
+
+      const updateThemeIcons = (mode) => {
+        themeToggles.forEach(toggle => {
+          const sunIcon = toggle.querySelector('svg.sun');
+          const moonIcon = toggle.querySelector('svg.moon');
+          const autoIcon = toggle.querySelector('svg.auto');
+
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'none';
+          autoIcon.style.display = 'none';
+
+          if (mode === 'auto') {
+            autoIcon.style.display = 'block';
+          } else if (mode === 'dark') {
+            moonIcon.style.display = 'block';
+          } else {
+            sunIcon.style.display = 'block';
+          }
+        });
       };
 
       applyTheme();
