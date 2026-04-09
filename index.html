@@ -29,6 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/i18n.js"></script>
   </head>
   <body>
     <header>
@@ -43,6 +44,15 @@
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
             <span data-i18n="nav_features">Features</span>
+          </a></li>
+          <li><a href="#overview" data-section="overview">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+            </svg>
+            <span data-i18n="nav_overview">Overview</span>
           </a></li>
           <li><a href="#screenshots" data-section="screenshots">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -170,6 +180,114 @@
           </div>
         </div>
       </section>
+      <!-- Overview Components Section -->
+      <section class="section" id="overview">
+        <h2 class="section-title" data-i18n="overview_title">Overview Components</h2>
+        <p class="section-subtitle" data-i18n="overview_subtitle">
+          Explore the key functional areas of ClashFox's interface
+        </p>
+        
+        <div class="overview-grid">
+          <!-- Network Stats -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/network.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Network Statistics" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_network">Network Statistics</div>
+              <div class="overview-compact-desc" data-i18n="overview_network_desc">Monitor real-time traffic flow, bandwidth usage, and active connections.</div>
+            </div>
+          </div>
+          
+          <!-- Provider Management -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/provider.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Provider Management" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_provider">Provider Management</div>
+              <div class="overview-compact-desc" data-i18n="overview_provider_desc">Manage proxy subscriptions, servers, and connection configurations.</div>
+            </div>
+          </div>
+          
+          <!-- Real-time Monitoring -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/realtime.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Real-time Monitoring" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_realtime">Real-time Monitoring</div>
+              <div class="overview-compact-desc" data-i18n="overview_realtime_desc">Track live performance metrics and application activity in real-time.</div>
+            </div>
+          </div>
+          
+          <!-- Rules Configuration -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/rules.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Rules Configuration" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_rules">Rules Configuration</div>
+              <div class="overview-compact-desc" data-i18n="overview_rules_desc">Configure traffic routing rules, domain filtering, and proxy policies.</div>
+            </div>
+          </div>
+          
+          <!-- Running Status -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/running.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Running Status" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_running">Running Status</div>
+              <div class="overview-compact-desc" data-i18n="overview_running_desc">View kernel service status, uptime, and operational health indicators.</div>
+            </div>
+          </div>
+          
+          <!-- Quick Actions -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/quick-actions.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Quick Actions" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_quickactions">Quick Actions</div>
+              <div class="overview-compact-desc" data-i18n="overview_quickactions_desc">Access one-click controls, shortcuts, and frequently used operations.</div>
+            </div>
+          </div>
+          
+          <!-- Outbound Configuration -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/outbound.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Outbound Configuration" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_outbound">Outbound Configuration</div>
+              <div class="overview-compact-desc" data-i18n="overview_outbound_desc">Configure egress traffic settings, proxy chains, and outbound rules.</div>
+            </div>
+          </div>
+          
+          <!-- Schema Viewer -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/schema.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Schema Viewer" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_schema">Schema Viewer</div>
+              <div class="overview-compact-desc" data-i18n="overview_schema_desc">Visualize configuration structure, schema relationships, and settings hierarchy.</div>
+            </div>
+          </div>
+          
+          <!-- Topology View -->
+          <div class="overview-compact-card">
+            <div class="overview-compact-img">
+              <img data-src="assets/overview/topology.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Topology View" />
+            </div>
+            <div class="overview-compact-content">
+              <div class="overview-compact-title" data-i18n="overview_topology">Topology View</div>
+              <div class="overview-compact-desc" data-i18n="overview_topology_desc">Visualize network topology, connection paths, and proxy relationships.</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Features Section -->
       <section class="section" id="features">
@@ -230,142 +348,181 @@
           Take a peek at ClashFox's beautiful interface
         </p>
         
-        <!-- Screenshot Tabs -->
-        <div class="screenshot-tabs">
-          <button class="tab-btn active" data-tab="all" data-i18n="tab_all">All</button>
-          <button class="tab-btn" data-tab="core" data-i18n="tab_core">Core</button>
-          <button class="tab-btn" data-tab="tools" data-i18n="tab_tools">Tools</button>
-          <button class="tab-btn" data-tab="settings" data-i18n="tab_settings">Settings</button>
-        </div>
-        
-        <div class="screenshots-grid">
-          <!-- Core Features -->
-          <div class="screenshot-card" data-category="core">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/overview.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Overview Dashboard - Main interface showing proxy status and connections" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
+        <div class="carousel-container">
+          <div class="carousel">
+            <!-- Core Features -->
+            <div class="carousel-slide active">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/overview.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Overview Dashboard - Main interface showing proxy status and connections" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_overview">Overview Dashboard</div>
               </div>
             </div>
-            <div class="screenshot-caption" data-i18n="cap_overview">Overview Dashboard</div>
-          </div>
-          <div class="screenshot-card" data-category="core">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/kernel.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Kernel Management - Control and monitor Mihomo kernel status" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
+            
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/kernel.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Kernel Management - Control and monitor Mihomo kernel status" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_kernel">Kernel Management</div>
               </div>
             </div>
-            <div class="screenshot-caption" data-i18n="cap_kernel">Kernel Management</div>
-          </div>
-          <div class="screenshot-card" data-category="core">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/config.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Configuration - Edit and manage proxy configuration files" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
+            
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/config.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Configuration - Edit and manage proxy configuration files" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_config">Configuration</div>
               </div>
             </div>
-            <div class="screenshot-caption" data-i18n="cap_config">Configuration</div>
-          </div>
-          <div class="screenshot-card" data-category="core">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/logs.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Logs Viewer - Real-time proxy connection and activity logs" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
+            
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/logs.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Logs Viewer - Real-time proxy connection and activity logs" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_logs">Logs Viewer</div>
               </div>
             </div>
-            <div class="screenshot-caption" data-i18n="cap_logs">Logs Viewer</div>
+            
+            <!-- Tools -->
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/foxboard.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Foxboard - Dashboard widgets and quick actions panel" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_foxboard">Foxboard</div>
+              </div>
+            </div>
+            
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/trackers.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Trackers - DNS and BitTorrent tracker status monitor" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_trackers">Trackers</div>
+              </div>
+            </div>
+            
+            <!-- Settings -->
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/settings.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Settings - Application preferences and configuration options" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_settings">Settings</div>
+              </div>
+            </div>
+            
+            <div class="carousel-slide">
+              <div class="screenshot-card">
+                <div class="screenshot-wrapper">
+                  <img data-src="assets/screenshot/help.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Help - Documentation and troubleshooting guides" />
+                  <div class="screenshot-overlay">
+                    <span class="zoom-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                        <path d="M11 8v6M8 11h6"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div class="screenshot-caption" data-i18n="cap_help">Help</div>
+              </div>
+            </div>
           </div>
           
-          <!-- Tools -->
-          <div class="screenshot-card" data-category="tools">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/foxboard.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Foxboard - Dashboard widgets and quick actions panel" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div class="screenshot-caption" data-i18n="cap_foxboard">Foxboard</div>
-          </div>
-          <div class="screenshot-card" data-category="tools">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/trackers.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Trackers - DNS and BitTorrent tracker status monitor" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div class="screenshot-caption" data-i18n="cap_trackers">Trackers</div>
-          </div>
+          <button class="carousel-prev" aria-label="Previous screenshot">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="carousel-next" aria-label="Next screenshot">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
           
-          <!-- Settings -->
-          <div class="screenshot-card" data-category="settings">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/settings.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Settings - Application preferences and configuration options" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div class="screenshot-caption" data-i18n="cap_settings">Settings</div>
-          </div>
-          <div class="screenshot-card" data-category="settings">
-            <div class="screenshot-wrapper">
-              <img data-src="assets/screenshot/help.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Help - Documentation and troubleshooting guides" />
-              <div class="screenshot-overlay">
-                <span class="zoom-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                    <path d="M11 8v6M8 11h6"/>
-                  </svg>
-                </span>
-              </div>
-            </div>
-            <div class="screenshot-caption" data-i18n="cap_help">Help</div>
+          <div class="carousel-indicators">
+            <button class="carousel-indicator active" data-index="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-indicator" data-index="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-indicator" data-index="2" aria-label="Go to slide 3"></button>
+            <button class="carousel-indicator" data-index="3" aria-label="Go to slide 4"></button>
+            <button class="carousel-indicator" data-index="4" aria-label="Go to slide 5"></button>
+            <button class="carousel-indicator" data-index="5" aria-label="Go to slide 6"></button>
+            <button class="carousel-indicator" data-index="6" aria-label="Go to slide 7"></button>
+            <button class="carousel-indicator" data-index="7" aria-label="Go to slide 8"></button>
           </div>
         </div>
       </section>
+
+
 
       <!-- Installation Section -->
       <section class="section" id="installation">
@@ -568,186 +725,7 @@
         });
       }, { rootMargin: '100px' });
 
-      // i18n translations
-      const translations = {
-        en: {
-          hero_subtitle: 'Native Proxy GUI for Mihomo',
-          hero_desc: 'Make kernel management a lot of fun! A powerful Electron GUI for managing your Mihomo proxy configuration with style and ease.',
-          download: 'Download',
-          github: 'GitHub',
-          features_title: 'Powerful Features',
-          features_subtitle: 'Everything you need to manage your Mihomo proxy configuration efficiently',
-          feat_fast_title: 'Fast & Lightweight',
-          feat_fast_desc: 'Built with Electron for cross-platform support while maintaining excellent performance and responsiveness for smooth user experience.',
-          feat_ui_title: 'Modern UI Design',
-          feat_ui_desc: 'Beautiful, intuitive interface with dark theme support, smooth animations, and thoughtful micro-interactions.',
-          feat_config_title: 'Easy Configuration',
-          feat_config_desc: 'Simplified configuration management for Mihomo with a user-friendly interface and helpful configuration tools.',
-          feat_monitor_title: 'Real-time Monitoring',
-          feat_monitor_desc: 'Track your proxy traffic, connections, and performance metrics in real-time with detailed and informative dashboards.',
-          feat_secure_title: 'Secure & Private',
-          feat_secure_desc: 'Your configuration stays local. No data is sent to external servers, ensuring complete privacy and data control.',
-          feat_mac_title: 'macOS Native',
-          feat_mac_desc: 'Deep integration with macOS including LaunchDaemon helper for seamless system-level proxy management and automation.',
-          screenshots_title: 'App Screenshots',
-          screenshots_subtitle: "Take a peek at ClashFox's beautiful interface",
-          install_title: 'Quick Installation',
-          install_subtitle: 'Get ClashFox up and running in minutes',
-          step1_title: 'Download',
-          step1_desc: 'Download the latest version from GitHub Releases for your platform (macOS)',
-          step2_title: 'Install Mihomo',
-          step2_desc: 'Mihomo kernel needs to be installed separately. ClashFox does not bundle the kernel.',
-          step3_title: 'Configure',
-          step3_desc: 'Launch ClashFox and configure your proxy subscription or local config file.',
-          step4_title: 'Start Using',
-          step4_desc: "Enjoy seamless proxy management with ClashFox's intuitive interface!",
-          faq_title: 'Frequently Asked Questions',
-          faq_subtitle: 'Common questions about ClashFox and Mihomo',
-          faq2_q: 'How do I resolve kernel conflict issues?',
-          faq2_a: "If you encounter conflicts, close other proxy services and try again. Since the Mihomo kernel requires exclusive running, running multiple proxy tools simultaneously (like ClashX Pro, Surge, etc.) may cause port conflicts.",
-          faq4_q: 'Does ClashFox support proxy subscription links?',
-          faq4_a: "Yes! ClashFox supports importing proxy configurations via subscription URLs. Go to Configuration > Import from URL and paste your subscription link. ClashFox will automatically fetch and update your proxy list.",
-          faq5_q: 'Where are configurations, logs, and kernel stored?',
-          faq5_desc: "The runtime root directory is located at ~/Library/Application Support/ClashFox.",
-          faq6_q: 'What should I do when macOS shows "App is damaged" or "Cannot verify developer"?',
-          faq6_tip: 'This is typically the default Gatekeeper blocking behavior for unnotarized apps, not a ClashFox-specific issue.',
-          faq6_step1: 'Move the app to /Applications/ClashFox.app',
-          faq6_step2: 'Open System Settings → Privacy & Security and click "Still Open"',
-          faq6_step3: "If still blocked, run: sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app",
-          nav_features: 'Features',
-          nav_screenshots: 'Screenshots',
-          nav_installation: 'Installation',
-          nav_faq: 'FAQ',
-          tab_all: 'All',
-          tab_core: 'Core',
-          tab_tools: 'Tools',
-          tab_settings: 'Settings',
-          cap_overview: 'Overview Dashboard',
-          cap_kernel: 'Kernel Management',
-          cap_config: 'Configuration',
-          cap_logs: 'Logs Viewer',
-          cap_foxboard: 'Foxboard',
-          cap_trackers: 'Trackers',
-          cap_settings: 'Settings',
-          cap_help: 'Help',
-          footer_tagline: 'Native Proxy GUI for Mihomo',
-          footer_desc: 'Make kernel management a lot of fun!',
-          footer_resources: 'Resources',
-          footer_releases: 'Releases',
-          footer_issues: 'Issues',
-          footer_changelog: 'Changelog',
-          footer_community: 'Community',
-          footer_repo: 'GitHub Repository',
-          footer_docs: 'Documentation',
-          footer_license: 'License',
-          footer_view_license: 'View License',
-          footer_copyright: '© 2026 ClashFox. Licensed under GPL-3.0',
-          footer_made_by: 'Made with ❤️ by Kuochiang Lu'
-        },
-        zh: {
-          hero_subtitle: 'Mihomo 原生代理 GUI',
-          hero_desc: '让内核管理变得有趣！一款功能强大的 Electron GUI，助您轻松管理 Mihomo 代理配置。',
-          download: '下载',
-          github: 'GitHub',
-          features_title: '强大功能',
-          features_subtitle: '高效管理 Mihomo 代理配置所需的一切',
-          feat_fast_title: '快速且轻量',
-          feat_fast_desc: '基于 Electron 构建，跨平台支持，同时保持出色的性能和响应速度。',
-          feat_ui_title: '现代 UI 设计',
-          feat_ui_desc: '精美直观的界面，支持深色主题，流畅动画，精心设计的微交互。',
-          feat_config_title: '简易配置',
-          feat_config_desc: '简化 Mihomo 配置管理，用户友好的界面和实用的配置工具。',
-          feat_monitor_title: '实时监控',
-          feat_monitor_desc: '通过详细的信息面板实时跟踪代理流量、连接和性能指标。',
-          feat_secure_title: '安全私密',
-          feat_secure_desc: '您的配置保留在本地，不向外部服务器发送任何数据，确保完全的隐私和数据控制。',
-          feat_mac_title: '原生 macOS',
-          feat_mac_desc: '深度集成 macOS，包括 LaunchDaemon 助手，实现无缝的系统级代理管理和自动化。',
-          screenshots_title: '应用截图',
-          screenshots_subtitle: '一览 ClashFox 精美界面',
-          install_title: '快速安装',
-          install_subtitle: '几分钟内启动 ClashFox',
-          step1_title: '下载',
-          step1_desc: '从 GitHub Releases 下载适合您平台的最新版本 (macOS)',
-          step2_title: '安装 Mihomo',
-          step2_desc: 'Mihomo 内核需要单独安装，ClashFox 不捆绑内核。',
-          step3_title: '配置',
-          step3_desc: '启动 ClashFox 并配置您的代理订阅或本地配置文件。',
-          step4_title: '开始使用',
-          step4_desc: '通过 ClashFox 直观的界面享受无缝代理管理！',
-          faq_title: '常见问题',
-          faq_subtitle: '关于 ClashFox 和 Mihomo 的常见问题',
-          faq2_q: '如何解决内核冲突问题？',
-          faq2_a: '如果遇到冲突，请关闭其他代理服务后重试。由于 Mihomo 内核需要独占运行，若同时运行多个代理工具（如 ClashX Pro、Surge 等）可能会导致端口冲突。',
-          faq4_q: 'ClashFox 支持代理订阅链接吗？',
-          faq4_a: '支持！ClashFox 支持通过订阅 URL 导入代理配置。前往配置 > 从 URL 导入并粘贴您的订阅链接，ClashFox 将自动获取并更新您的代理列表。',
-          faq5_q: '配置、日志和内核都存在哪里？',
-          faq5_desc: '运行时根目录在 ~/Library/Application Support/ClashFox。',
-          faq6_q: 'macOS 提示"已损坏"或"无法验证开发者"怎么办？',
-          faq6_tip: '这通常是 Gatekeeper 对未公证应用的默认拦截，不是 ClashFox 独有问题。',
-          faq6_step1: '先把应用移动到 /Applications/ClashFox.app',
-          faq6_step2: '打开"系统设置 → 隐私与安全性"，点击"仍要打开"',
-          faq6_step3: '如果还是被拦截，再执行 sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app 去掉隔离标记',
-          nav_features: '功能',
-          nav_screenshots: '截图',
-          nav_installation: '安装',
-          nav_faq: '常见问题',
-          tab_all: '全部',
-          tab_core: '核心',
-          tab_tools: '工具',
-          tab_settings: '设置',
-          cap_overview: '概览面板',
-          cap_kernel: '内核管理',
-          cap_config: '配置管理',
-          cap_logs: '日志查看',
-          cap_foxboard: '工具面板',
-          cap_trackers: '追踪器',
-          cap_settings: '设置',
-          cap_help: '帮助',
-          footer_tagline: 'Mihomo 原生代理 GUI',
-          footer_desc: '让内核管理变得有趣！',
-          footer_resources: '资源',
-          footer_releases: '发布版本',
-          footer_issues: '问题反馈',
-          footer_changelog: '更新日志',
-          footer_community: '社区',
-          footer_repo: 'GitHub 仓库',
-          footer_docs: '使用文档',
-          footer_license: '开源许可',
-          footer_view_license: '查看许可',
-          footer_copyright: '© 2026 ClashFox. 基于 GPL-3.0 许可',
-          footer_made_by: '由 Kuochiang Lu ❤️ 开发'
-        }
-      };
-
-      // Language switching functionality
-      let currentLang = localStorage.getItem('lang') || 'en';
-
-      function setLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem('lang', lang);
-        const t = translations[lang];
-        
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-          const key = el.dataset.i18n;
-          if (t[key] !== undefined) {
-            el.textContent = t[key];
-          }
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-          btn.classList.toggle('active', btn.dataset.lang === lang);
-        });
-
-        document.documentElement.lang = lang;
-      }
-
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-      });
-
-      // Initialize language
-      setLanguage(currentLang);
+      // Language initialization is now handled in js/i18n.js
 
       // Download dropdown functionality
       const downloadDropdown = document.querySelector('.download-dropdown');
@@ -921,34 +899,9 @@
         }
       });
 
-      // Screenshot Tab Filtering
-      const tabBtns = document.querySelectorAll('.tab-btn');
-      const screenshotCards = document.querySelectorAll('.screenshot-card');
 
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          
-          const category = btn.dataset.tab;
-          
-          screenshotCards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-              card.style.display = 'block';
-              setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              }, 50);
-            } else {
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(20px)';
-              setTimeout(() => {
-                card.style.display = 'none';
-              }, 300);
-            }
-          });
-        });
-      });
+
+
 
       // Initialize Bento cards and step cards
       document.querySelectorAll('.bento-card, .step-card').forEach(card => {
@@ -970,6 +923,104 @@
         lazyObserver.observe(img);
       });
 
+      // Initialize overview cards and lazy load images
+      document.querySelectorAll('.overview-compact-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        animationObserver.observe(card);
+      });
+
+      document.querySelectorAll('.overview-compact-card img').forEach(img => {
+        lazyObserver.observe(img);
+      });
+
+      // Carousel Functionality
+      const carousel = document.querySelector('.carousel');
+      const carouselSlides = document.querySelectorAll('.carousel-slide');
+      const carouselPrev = document.querySelector('.carousel-prev');
+      const carouselNext = document.querySelector('.carousel-next');
+      const carouselIndicators = document.querySelectorAll('.carousel-indicator');
+      
+      let currentSlide = 0;
+      let autoSlideInterval;
+      const totalSlides = carouselSlides.length;
+
+      // Simple infinite loop implementation
+      function updateCarousel() {
+        // Update slide visibility
+        carouselSlides.forEach((slide, index) => {
+          const isActive = index === currentSlide;
+          slide.classList.toggle('active', isActive);
+        });
+        
+        // Update indicators
+        carouselIndicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update carousel transform
+        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+        }
+      }
+
+      // Event listeners
+      if (carouselPrev && carouselNext) {
+        carouselPrev.addEventListener('click', () => {
+          prevSlide();
+          startAutoSlide();
+        });
+        
+        carouselNext.addEventListener('click', () => {
+          nextSlide();
+          startAutoSlide();
+        });
+      }
+
+      // Indicator click events
+      carouselIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(index);
+          startAutoSlide();
+        });
+      });
+
+      // Pause auto-slide on hover
+      const carouselContainer = document.querySelector('.carousel-container');
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+      }
+
+      // Initialize carousel
+      updateCarousel();
+      startAutoSlide();
+
       // Lightbox Functionality
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
@@ -982,13 +1033,15 @@
       let visibleImages = [];
 
       function updateVisibleImages() {
-        visibleImages = Array.from(document.querySelectorAll('.screenshot-card'))
-          .filter(card => card.style.display !== 'none')
+        // 只收集轮播中的截图图片，不包括Overview Components
+        const screenshotCards = Array.from(document.querySelectorAll('.carousel-slide .screenshot-card'))
           .map(card => ({
             src: card.querySelector('img').dataset.src || card.querySelector('img').src,
             alt: card.querySelector('img').alt,
             caption: card.querySelector('.screenshot-caption').textContent
           }));
+        
+        visibleImages = [...screenshotCards];
       }
 
       function openLightbox(index) {
@@ -1023,12 +1076,31 @@
       document.querySelectorAll('.screenshot-card').forEach((card, index) => {
         card.addEventListener('click', () => {
           updateVisibleImages();
-          const visibleIndex = Array.from(document.querySelectorAll('.screenshot-card'))
-            .filter(c => c.style.display !== 'none')
-            .indexOf(card);
-          openLightbox(visibleIndex);
+          openLightbox(index);
         });
         card.style.cursor = 'pointer';
+      });
+
+      // Overview card click handler
+      document.querySelectorAll('.overview-compact-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          // 为Overview Components创建独立的图片数组
+          const overviewCards = Array.from(document.querySelectorAll('.overview-compact-card'))
+            .map(c => ({
+              src: c.querySelector('img').dataset.src || c.querySelector('img').src,
+              alt: c.querySelector('img').alt,
+              caption: c.querySelector('.overview-compact-title').textContent
+            }));
+          
+          // 找到当前卡片的索引
+          const allOverviewCards = Array.from(document.querySelectorAll('.overview-compact-card'));
+          const currentIndex = allOverviewCards.indexOf(card);
+          
+          // 使用Overview Components的图片数组
+          visibleImages = [...overviewCards];
+          openLightbox(currentIndex);
+        });
+        // Cursor is already set in CSS for .overview-compact-card
       });
 
       // Lightbox event listeners
@@ -1046,6 +1118,25 @@
         if (e.key === 'ArrowLeft') showImage(currentImageIndex - 1);
         if (e.key === 'ArrowRight') showImage(currentImageIndex + 1);
       });
+
+      // Initialize language - function should be available from js/i18n.js
+      // Wait for DOM to be fully ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          if (typeof initializeLanguage === 'function') {
+            initializeLanguage();
+          } else {
+            console.error('initializeLanguage function not found after DOMContentLoaded');
+          }
+        });
+      } else {
+        // DOM already loaded
+        if (typeof initializeLanguage === 'function') {
+          initializeLanguage();
+        } else {
+          console.error('initializeLanguage function not found');
+        }
+      }
     </script>
   </body>
 </html>
