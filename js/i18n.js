@@ -144,7 +144,7 @@ const translations = {
         faq6_step3: '如果还是被拦截，再执行 sudo xattr -r -d com.apple.quarantine /Applications/ClashFox.app 去掉隔离标记',
         nav_features: '功能',
         nav_overview: '概览',
-        nav_screenshots: '截图',
+        nav_screenshots: '快照',
         nav_installation: '安装',
         nav_faq: '常见问题',
         tab_all: '全部',
