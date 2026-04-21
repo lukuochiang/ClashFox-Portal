@@ -278,6 +278,52 @@ main {
     flex-wrap: wrap;
 }
 
+/* GitHub Stats */
+.github-stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.stat-badge:hover {
+    border-color: rgba(244, 179, 74, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-badge svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary);
+}
+
+.stat-label {
+    color: var(--text-muted);
+}
+
+.stat-value {
+    color: var(--text-primary);
+    font-weight: 600;
+    min-width: 2ch;
+    display: inline-block;
+    text-align: center;
+}
+
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -666,6 +712,59 @@ a.cta-button.secondary {
 
 .screenshot-wrapper img.loaded {
     opacity: 1;
+    animation: fadeInImage 0.5s ease;
+}
+
+@keyframes fadeInImage {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Skeleton loading for images */
+.screenshot-wrapper::before,
+.overview-compact-img::before,
+.preview-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        var(--bg-dark) 25%,
+        rgba(244, 179, 74, 0.05) 50%,
+        var(--bg-dark) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 1;
+}
+
+.screenshot-wrapper img.loaded + .screenshot-overlay,
+.overview-compact-img img.loaded,
+.preview-wrapper img.loaded {
+    z-index: 2;
+}
+
+.screenshot-wrapper:has(img.loaded)::before,
+.overview-compact-img:has(img.loaded)::before,
+.preview-wrapper:has(img.loaded)::before {
+    display: none;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+[data-theme="light"] .screenshot-wrapper::before,
+[data-theme="light"] .overview-compact-img::before,
+[data-theme="light"] .preview-wrapper::before {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        rgba(244, 179, 74, 0.1) 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
 }
 
 .screenshot-overlay {
@@ -790,6 +889,181 @@ a.cta-button.secondary {
 .carousel-indicator.active {
     background: var(--primary);
     transform: scale(1.2);
+}
+
+/* Changelog Modal */
+.changelog-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 2rem;
+}
+
+.changelog-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.changelog-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.changelog-modal.active .changelog-content {
+    transform: scale(1);
+}
+
+.changelog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.changelog-header h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.changelog-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.changelog-close:hover {
+    background: rgba(244, 179, 74, 0.1);
+    color: var(--primary);
+}
+
+.changelog-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+.changelog-body {
+    padding: 2rem;
+    overflow-y: auto;
+    max-height: calc(80vh - 80px);
+}
+
+.changelog-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-muted);
+    padding: 2rem;
+}
+
+.changelog-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.changelog-release {
+    margin-bottom: 2rem;
+}
+
+.changelog-release:last-child {
+    margin-bottom: 0;
+}
+
+.changelog-version {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.changelog-version h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.changelog-badge {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--bg-dark);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.changelog-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.changelog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.changelog-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.changelog-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.changelog-error {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+}
+
+.changelog-error a {
+    color: var(--primary);
+    text-decoration: none;
 }
 
 /* Lightbox */
@@ -1081,6 +1355,50 @@ a.cta-button.secondary {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* FAQ Animation Improvements */
+.faq-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item[open] {
+    animation: faqExpand 0.3s ease;
+}
+
+@keyframes faqExpand {
+    from {
+        opacity: 0.8;
+        transform: scale(0.995);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.faq-item summary {
+    transition: all 0.2s ease;
+}
+
+.faq-item summary::after {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item p,
+.faq-answer {
+    animation: faqContentSlide 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes faqContentSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Footer */
 footer {
     background: rgba(15, 21, 29, 0.98);
@@ -1242,6 +1560,59 @@ footer {
 /* 移动端主题切换浮动按钮 - 默认隐藏 */
 .mobile-theme-toggle {
     display: none;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    box-shadow: var(--card-shadow);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Mobile: adjust position when theme toggle is also present */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 5rem;
+        right: 1.5rem;
+    }
+    
+    .mobile-theme-toggle {
+        bottom: 1.5rem;
+    }
 }
 
 /* Mobile Menu */
@@ -1548,6 +1919,11 @@ footer {
 
 .overview-compact-img img.loaded {
     opacity: 1;
+    animation: fadeInImage 0.5s ease;
+}
+
+.preview-wrapper img.loaded {
+    animation: fadeInImage 0.5s ease;
 }
 
 .overview-compact-content {
@@ -1617,5 +1993,18 @@ footer {
         line-height: 1.4;
     }
     
-
+    /* GitHub Stats mobile */
+    .github-stats {
+        justify-content: center;
+    }
+    
+    .stat-badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .stat-badge svg {
+        width: 16px;
+        height: 16px;
+    }
 }
