@@ -1231,60 +1231,190 @@
           </div>
         `;
         
-        fetch('https://api.github.com/repos/lukuochiang/ClashFox/releases?per_page=5')
+        // Fetch CHANGELOG.md directly from GitHub
+        fetch('https://raw.githubusercontent.com/lukuochiang/ClashFox/main/CHANGELOG.md')
           .then(response => {
             if (!response.ok) throw new Error('Failed to fetch');
-            return response.json();
+            return response.text();
           })
-          .then(releases => {
-            if (!releases || releases.length === 0) {
-              throw new Error('No releases found');
+          .then(markdown => {
+            if (!markdown || markdown.trim().length === 0) {
+              throw new Error('Empty changelog');
             }
             
-            let html = '';
-            releases.forEach((release, index) => {
-              const date = new Date(release.published_at).toLocaleDateString(
-                currentLang === 'zh' ? 'zh-CN' : 'en-US',
-                { year: 'numeric', month: 'short', day: 'numeric' }
-              );
-              const isLatest = index === 0;
-              
-              // Parse markdown-like content to HTML
-              let body = release.body || '';
-              body = body
-                .replace(/\r\n/g, '\n')
-                .replace(/##\s*(.+)/g, '<strong>$1</strong>')
-                .replace(/-\s*(.+)/g, '<li>$1</li>')
-                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-              
-              // Extract list items
-              const listItems = body.match(/<li>.+<\/li>/g);
-              const listHtml = listItems ? `<ul class="changelog-list">${listItems.join('')}</ul>` : `<p style="color: var(--text-muted);">${currentLang === 'zh' ? '无详细说明' : 'No detailed notes'}</p>`;
-              
-              html += `
-                <div class="changelog-release">
-                  <div class="changelog-version">
-                    <h4>${release.tag_name}</h4>
-                    ${isLatest ? `<span class="changelog-badge">${currentLang === 'zh' ? '最新' : 'Latest'}</span>` : ''}
-                  </div>
-                  <div class="changelog-date">${date}</div>
-                  ${listHtml}
-                </div>
-              `;
-            });
-            
+            const html = parseChangelogMarkdown(markdown);
             changelogBody.innerHTML = html;
           })
           .catch(error => {
+            console.error('Failed to load changelog:', error);
             changelogBody.innerHTML = `
               <div class="changelog-error">
                 <p>${currentLang === 'zh' ? '无法加载更新日志' : 'Failed to load changelog'}</p>
-                <a href="https://github.com/lukuochiang/ClashFox/releases" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/lukuochiang/ClashFox/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">
                   ${currentLang === 'zh' ? '在 GitHub 上查看 →' : 'View on GitHub →'}
                 </a>
               </div>
             `;
           });
+      }
+      
+      function parseChangelogMarkdown(markdown) {
+        // Normalize line endings
+        let normalized = markdown.replace(/\r\n/g, '\n');
+        const lines = normalized.split('\n');
+        
+        let html = '';
+        let inList = false;
+        let currentSection = '';
+        let releaseCount = 0;
+        const maxReleases = 1;
+        
+        for (let i = 0; i < lines.length; i++) {
+          let line = lines[i];
+          
+          // Skip separator lines
+          if (line.match(/^---\s*$/)) {
+            continue;
+          }
+          
+          // Check for version headers - handle multi-line format
+          // Format: ### [0.5.9](https://github.com/.../compare/v0.5.8...v0.5.9) (2026-04-21)
+          // or: ### [0.5.9]\n(https://...)\n(2026-04-21)
+          const versionMatch = line.match(/^###\s*\[([\d.]+)\]/);
+          if (versionMatch) {
+            // Check if we've already processed max releases (this is the next version, stop here)
+            if (releaseCount >= maxReleases) {
+              break;
+            }
+            // Close previous release
+            if (inList) {
+              html += '</ul>';
+              inList = false;
+            }
+            if (currentSection) {
+              html += '</div>';
+              currentSection = '';
+            }
+            // Close previous release div if exists
+            if (releaseCount > 0) {
+              html += '</div>';
+            }
+            
+            releaseCount++;
+            const version = 'v' + versionMatch[1];
+            const isLatest = releaseCount === 1;
+            
+            // Look ahead for date in next lines (search within 10 lines to be safe)
+            let dateStr = '';
+            for (let j = i + 1; j < lines.length && j < i + 10; j++) {
+              const dateMatch = lines[j].match(/\((\d{4}-\d{2}-\d{2})\)/);
+              if (dateMatch) {
+                // Use original YYYY-MM-DD format
+                dateStr = dateMatch[1];
+                break;
+              }
+            }
+            
+            html += `
+              <div class="changelog-release">
+                <div class="changelog-version">
+                  <h4>${version}${dateStr ? ` <span class="changelog-version-date">(${dateStr})</span>` : ''}</h4>
+                  ${isLatest ? `<span class="changelog-badge">${currentLang === 'zh' ? '最新' : 'Latest'}</span>` : ''}
+                </div>
+            `;
+            continue;
+          }
+          
+          // Skip lines that are just URLs or compare links (like the compare URL on its own line)
+          // But keep lines with dates like "(2026-04-21)"
+          if (line.match(/^\(https?:\/\/[^)]+\)$/) && !line.match(/\d{4}-\d{2}-\d{2}/)) {
+            continue;
+          }
+          
+          // Skip the "All notable changes..." header and other metadata
+          if (line.match(/^#\s*Changelog/i) || 
+              line.match(/^All notable changes/i) ||
+              line.match(/^See \[standard-version\]/i)) {
+            continue;
+          }
+          
+          // Skip empty lines at the start or between sections
+          if (!line.trim()) {
+            if (inList) {
+              html += '</ul>';
+              inList = false;
+            }
+            continue;
+          }
+          
+          // Check for section headers (### Features, ### Bug Fixes, etc.)
+          const sectionMatch = line.match(/^###\s*(.+)/);
+          if (sectionMatch) {
+            if (inList) {
+              html += '</ul>';
+              inList = false;
+            }
+            if (currentSection) {
+              html += '</div>';
+            }
+            currentSection = sectionMatch[1];
+            html += `<div class="changelog-section"><strong>${currentSection}</strong>`;
+            continue;
+          }
+          
+          // Check for list items (handle various bullet styles)
+          const listMatch = line.match(/^[\s]*[-*]\s*(.+)/);
+          if (listMatch) {
+            if (!inList) {
+              html += '<ul class="changelog-list">';
+              inList = true;
+            }
+            let itemContent = listMatch[1];
+            // Parse inline formatting
+            itemContent = parseInlineFormatting(itemContent);
+            html += `<li>${itemContent}</li>`;
+            continue;
+          }
+        }
+        
+        // Close any remaining open elements
+        if (inList) {
+          html += '</ul>';
+        }
+        if (currentSection) {
+          html += '</div>';
+        }
+        
+        // Close last release div
+        if (releaseCount > 0) {
+          html += '</div>';
+        }
+        
+        // Add "View more" link at the bottom
+        const viewMoreText = currentLang === 'zh' ? '查看更多' : 'View more';
+        html += `
+          <div class="changelog-view-more">
+            <a href="https://github.com/lukuochiang/ClashFox/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">
+              ${viewMoreText} →
+            </a>
+          </div>
+        `;
+        
+        return html || `<p style="color: var(--text-muted);">${currentLang === 'zh' ? '无详细说明' : 'No detailed notes'}</p>`;
+      }
+      
+      function parseInlineFormatting(text) {
+        // Remove markdown links like [text](url) - keep only the text
+        text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+        // Remove bare URLs
+        text = text.replace(/https?:\/\/[^\s)]+/g, '');
+        // Parse **bold** text
+        text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        // Parse `code` text
+        text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+        // Clean up empty parentheses left from removed links
+        text = text.replace(/\(\s*\)/g, '');
+        return text.trim();
       }
       
       changelogClose.addEventListener('click', closeChangelog);

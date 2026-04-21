@@ -1015,6 +1015,12 @@ a.cta-button.secondary {
     margin: 0;
 }
 
+.changelog-version-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
 .changelog-badge {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: var(--bg-dark);
@@ -1030,6 +1036,23 @@ a.cta-button.secondary {
     margin-bottom: 1rem;
 }
 
+.changelog-section {
+    margin-bottom: 1.25rem;
+}
+
+.changelog-section:last-child {
+    margin-bottom: 0;
+}
+
+.changelog-section > strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .changelog-list {
     list-style: none;
     padding: 0;
@@ -1039,9 +1062,14 @@ a.cta-button.secondary {
 .changelog-list li {
     position: relative;
     padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.changelog-list li:last-child {
+    margin-bottom: 0;
 }
 
 .changelog-list li::before {
@@ -1053,6 +1081,52 @@ a.cta-button.secondary {
     height: 6px;
     background: var(--primary);
     border-radius: 50%;
+}
+
+.changelog-list li code {
+    background: rgba(244, 179, 74, 0.15);
+    color: var(--primary);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.85em;
+}
+
+.changelog-list li strong {
+    color: var(--text-primary);
+}
+
+.changelog-commit {
+    color: var(--primary);
+    text-decoration: none;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.9em;
+    transition: opacity 0.2s ease;
+}
+
+.changelog-commit:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.changelog-view-more {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.changelog-view-more a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.changelog-view-more a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
 .changelog-error {
